@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{AboutController, BrandController, CategoryController, Multipics, MultipleImage};
+use App\Http\Controllers\{AboutController, BrandController, CategoryController, Multipics, MultipleImage, SliderController};
 use Illuminate\Support\Facades\DB;
-use App\Models\Brand;
+
 
 
 // Route::get('/', function () {
@@ -12,7 +12,9 @@ use App\Models\Brand;
 
 Route::get('/', function () {
     $brand=DB::table('brands')->get();
-    return view('frontEnd.index',compact('brand'));
+    $slider = DB::table('sliders')->get();
+    
+    return view('frontEnd.index',compact('brand','slider'));
 });
 
 Auth::routes();
@@ -47,7 +49,7 @@ Route::post('/multi/add', [Multipics::class, 'StoreImg'])->name('store.image');
 
 
 // Slider Image Title & Description START
-Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
-Route::get('/add/slider', [HomeController::class, 'AddSlider'])->name('add.slider');
-Route::post('/store/slider', [HomeController::class, 'StoreSlider'])->name('store.slider');
+Route::get('/home/slider', [SliderController::class, 'SliderIndex'])->name('home.slider');
+Route::get('/add/slider', [SliderController::class, 'AddSlider'])->name('add.slider');
+Route::post('/store/slider', [SliderController::class, 'StoreSlider'])->name('store.slider');
 // Slider Image Title & Description End

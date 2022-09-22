@@ -2,10 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{AboutController, BrandController, CategoryController, Multipics, MultipleImage};
+use Illuminate\Support\Facades\DB;
+use App\Models\Brand;
 
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/', function () {
-    return view('welcome');
+    $brand=DB::table('brands')->get();
+    return view('frontEnd.index',compact('brand'));
 });
 
 Auth::routes();

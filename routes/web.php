@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{AboutController, BrandController, CategoryController };
+use App\Http\Controllers\{AboutController, BrandController, CategoryController, Multipics, MultipleImage};
 
 
 Route::get('/', function () {
@@ -32,3 +32,8 @@ Route::get('/brand/delete/{id}', [BrandController::class, 'Delete']);
 Route::get('/brand/edit/{id}', [BrandController::class, 'brandEditController']);
 Route::post('/brand/update/{id}', [BrandController::class, 'updateBrand']);
 // BRAND END
+
+//multiple Image
+Route::get('/multi/image', [Multipics::class, 'Multpic'])->middleware(['auth'])->name('multipleImageIndex');
+Route::post('/multi/add', [Multipics::class, 'StoreImg'])->name('store.image');
+//multiple Image

@@ -44,3 +44,10 @@ Route::post('/brand/update/{id}', [BrandController::class, 'updateBrand']);
 Route::get('/multi/image', [Multipics::class, 'Multpic'])->middleware(['auth'])->name('multipleImageIndex');
 Route::post('/multi/add', [Multipics::class, 'StoreImg'])->name('store.image');
 //multiple Image
+
+
+// Slider Image Title & Description START
+Route::get('/home/slider', [HomeController::class, 'HomeSlider'])->name('home.slider');
+Route::get('/add/slider', [HomeController::class, 'AddSlider'])->name('add.slider');
+Route::post('/store/slider', [HomeController::class, 'StoreSlider'])->name('store.slider');
+// Slider Image Title & Description End

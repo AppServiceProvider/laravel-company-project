@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{AboutController, BrandController, CategoryController, Multipics, MultipleImage, SliderController};
+use App\Http\Controllers\{AboutController, BrandController, CategoryController, Multipics, MultipleImage, Portfolio, SliderController};
 use Illuminate\Support\Facades\DB;
+use App\Models\multipic;
 
 
 
@@ -10,11 +11,14 @@ use Illuminate\Support\Facades\DB;
 //     return view('welcome');
 // });
 
+Route::get('/Portfolio', [Portfolio::class, 'index'])->name('portfolio');
+
 Route::get('/', function () {
     $brand=DB::table('brands')->get();
     $slider = DB::table('sliders')->get();
+    $images = Multipic::all();
     
-    return view('frontEnd.index',compact('brand','slider'));
+    return view('frontEnd.master',compact('brand','slider','images'));
 });
 
 Auth::routes();

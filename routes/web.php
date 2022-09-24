@@ -18,12 +18,13 @@ Route::get('/', function () {
     $slider = DB::table('sliders')->get();
     $images = Multipic::all();
     
-    return view('frontEnd.master',compact('brand','slider','images'));
-});
+    return view('frontEnd.home.home',compact('brand','slider','images'));
+})->name('index');
 
 Auth::routes();
-
+// Admin Home 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Admin Home 
 
 // CATEGORY START 
 Route::get('/category/all', [CategoryController::class, 'AllCat'])->middleware(['auth'])->name('all.category');

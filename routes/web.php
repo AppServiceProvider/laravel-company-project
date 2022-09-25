@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{AboutController, BrandController, CategoryController, Multipics, MultipleImage, Portfolio, SliderController};
+use App\Http\Controllers\{AboutController, BrandController, CategoryController, Multipics, MultipleImage, Portfolio, PortfolioDetail, SliderController};
 use Illuminate\Support\Facades\DB;
 use App\Models\multipic;
 
@@ -57,4 +57,12 @@ Route::post('/multi/add', [Multipics::class, 'StoreImg'])->name('store.image');
 Route::get('/home/slider', [SliderController::class, 'SliderIndex'])->name('home.slider');
 Route::get('/add/slider', [SliderController::class, 'AddSlider'])->name('add.slider');
 Route::post('/store/slider', [SliderController::class, 'StoreSlider'])->name('store.slider');
+Route::get('/slider/edit/{id}', [SliderController::class, 'sliderEdit']);
+Route::post('slider/update/{id}', [SliderController::class, 'updateSlider']);
+
+Route::get('slider/delete/{id}', [SliderController::class, 'sliderDeleteController'])->name('sliderDelete');
+// Slider Image Title & Description START
+
+
 // Slider Image Title & Description End
+Route::get('/portfolio/details/{id}', [PortfolioDetail::class, 'index'])->name('portfolio-details');

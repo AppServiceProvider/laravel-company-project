@@ -16,22 +16,22 @@
                     <h2>Create Slider</h2>
                     </div>
                     <div class="card-body">
-                    <form action="{{ route('store.slider') }}" method="POST" enctype="multipart/form-data"> @csrf <div class="form-group">
+                    <form action="{{ url('slider/update/'.$sliders->id)  }}" method="POST" enctype="multipart/form-data"> 
+                        @csrf 
+                        <div class="form-group">
                          <label for="exampleFormControlInput1">Slider Title </label>
-                         <input type="text" name="title" id="exampleFormControlInput1" placeholder="Slider Title"  class="form-control @error('title') is-invalid @enderror">
+                         <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Slider Title"  value="{{ $sliders->title }}">
                          </div>
-                         @error('title') <span class="text-danger"> {{ $message }}</span> @enderror
-
-
                          <div class="form-group">
                          <label for="exampleFormControlTextarea1">Slider Description</label>
-                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description">{{ $sliders->description }}"</textarea>
                          </div>
-                         @error('description') <span class="text-danger"> {{ $message }}</span> @enderror
-
                          <div class="form-group">
                          <label for="exampleFormControlFile1">Slider Image</label>
                          <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+                         </div>
+                         <div class="form-group">
+                              <img src="{{ asset($sliders->image) }}" style="width:400px; height:200px; object-fit: cover;">
                          </div>
                          <div class="form-footer pt-4 mt-4 border-top">
                          <button type="submit" class="btn btn-primary btn-default">Submit</button>

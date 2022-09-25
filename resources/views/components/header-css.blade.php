@@ -21,7 +21,7 @@
   <link href="{{asset('/frontEnd')}}/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="{{asset('/frontEnd')}}/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
   <link href="{{asset('/frontEnd')}}/assets/vendor/venobox/venobox.css" rel="stylesheet">
-  {{-- <link href="{{asset('/frontEnd')}}/assets/vendor/owl.carousel/owl.carousel.min.css" rel="stylesheet"> --}}
+  <link href="{{asset('/frontEnd')}}/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="{{asset('/frontEnd')}}/assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="{{asset('/frontEnd')}}/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
 
